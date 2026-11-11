@@ -128,6 +128,11 @@ class FooterSection extends StatelessWidget {
                   Row(
                     children: [
                       IconButton(
+                        icon: const Icon(Icons.link_rounded, color: AppColors.cyanAccent, size: 20),
+                        tooltip: 'LinkedIn Profile',
+                        onPressed: () => _launch('https://www.linkedin.com/in/hemant-l-06ba8821a'),
+                      ),
+                      IconButton(
                         icon: const Icon(Icons.camera_alt_outlined, color: AppColors.cyanAccent, size: 20),
                         tooltip: 'Instagram @neuralix_apps_solutions',
                         onPressed: () => _launch('https://www.instagram.com/neuralix_apps_solutions'),
@@ -242,6 +247,32 @@ class FooterSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 16),
+
+        // LinkedIn
+        InkWell(
+          onTap: () => _launch('https://www.linkedin.com/in/hemant-l-06ba8821a'),
+          borderRadius: BorderRadius.circular(8),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 4),
+            child: Row(
+              children: [
+                const Icon(Icons.link_rounded, color: AppColors.cyanAccent, size: 18),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Text(
+                    'LinkedIn: Hemant Lakhara',
+                    style: GoogleFonts.inter(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(height: 10),
 
         // Instagram
         InkWell(

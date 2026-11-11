@@ -71,6 +71,7 @@ Open `website/index.html` directly in any web browser or deploy the `website/` f
 ## 📬 Contact & Inquiries
 
 - **Main Owner:** Mr. Hemant Lakhara
+- **LinkedIn:** [linkedin.com/in/hemant-l-06ba8821a](https://www.linkedin.com/in/hemant-l-06ba8821a)
 - **Official Email:** [neuralixapps.official@gmail.com](mailto:neuralixapps.official@gmail.com)
 - **Instagram:** [@neuralix_apps_solutions](https://www.instagram.com/neuralix_apps_solutions)
 - **Headquarters Location:** Gurgaon, India

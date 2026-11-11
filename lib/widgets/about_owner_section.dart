@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../theme/app_theme.dart';
 
 class AboutOwnerSection extends StatelessWidget {
@@ -87,25 +88,26 @@ class AboutOwnerSection extends StatelessWidget {
               height: 180,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                gradient: const LinearGradient(
-                  colors: [Color(0xFF0072FF), Color(0xFF00D2FF)],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ),
                 border: Border.all(color: Colors.white, width: 3),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.cyanAccent.withValues(alpha: 0.4),
-                    blurRadius: 24,
+                    color: AppColors.cyanAccent.withValues(alpha: 0.5),
+                    blurRadius: 25,
                     spreadRadius: 2,
                   ),
                 ],
               ),
-              child: const Center(
-                child: Icon(
-                  Icons.person_pin_rounded,
-                  size: 96,
-                  color: Colors.white,
+              child: ClipOval(
+                child: Image.asset(
+                  'assets/images/hemant_lakhara.jpg',
+                  fit: BoxFit.cover,
+                  errorBuilder: (context, error, stackTrace) => const Center(
+                    child: Icon(
+                      Icons.person_pin_rounded,
+                      size: 96,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
               ),
             ),
@@ -162,6 +164,47 @@ class AboutOwnerSection extends StatelessWidget {
           style: GoogleFonts.inter(
             fontSize: 12,
             color: AppColors.textMuted,
+          ),
+        ),
+        const SizedBox(height: 12),
+        InkWell(
+          onTap: () async {
+            final uri = Uri.parse('https://www.linkedin.com/in/hemant-l-06ba8821a');
+            if (await canLaunchUrl(uri)) {
+              await launchUrl(uri, mode: LaunchMode.externalApplication);
+            }
+          },
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            decoration: BoxDecoration(
+              color: const Color(0xFF0077B5).withValues(alpha: 0.2),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(color: const Color(0xFF0A66C2), width: 1.2),
+              boxShadow: [
+                BoxShadow(
+                  color: const Color(0xFF0A66C2).withValues(alpha: 0.25),
+                  blurRadius: 10,
+                ),
+              ],
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.link_rounded, size: 16, color: Color(0xFF38BDF8)),
+                const SizedBox(width: 8),
+                Text(
+                  'LinkedIn Profile',
+                  style: GoogleFonts.inter(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white,
+                  ),
+                ),
+                const SizedBox(width: 4),
+                const Icon(Icons.arrow_outward_rounded, size: 13, color: Color(0xFF38BDF8)),
+              ],
+            ),
           ),
         ),
       ],

@@ -299,6 +299,18 @@ ${_messageController.text.trim()}
           ),
           const SizedBox(height: 20),
 
+          // LinkedIn Profile
+          _buildInfoRow(
+            icon: Icons.link_rounded,
+            title: 'Founder LinkedIn',
+            value: 'hemant-l-06ba8821a',
+            onTap: () async {
+              final uri = Uri.parse('https://www.linkedin.com/in/hemant-l-06ba8821a');
+              if (await canLaunchUrl(uri)) await launchUrl(uri, mode: LaunchMode.externalApplication);
+            },
+          ),
+          const SizedBox(height: 20),
+
           // Address
           _buildInfoRow(
             icon: Icons.location_on_outlined,
